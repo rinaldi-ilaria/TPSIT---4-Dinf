@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Convertitore Binario - Esadecimale</title>
+</head>
+<body>
+    <h1>Convertitore Binario ed Esadecimale</h1>
+    <p>Inserisci una parola o una frase:</p>
+    <input type="text" id="testo" placeholder="Scrivi qui...">
+    <button onclick="converti()">Converti</button>
+    <h2>Risultato binario:</h2>
+    <p id="binario"></p>
+    <h2>Risultato esadecimale:</h2>
+    <p id="esadecimale"></p>
+    <script>
+        function converti() {
+            let testo = document.getElementById("testo").value;
+            let binario = "";
+            let esadecimale = "";
+            for (let i = 0; i < testo.length; i++) {
+                let codice = testo.charCodeAt(i);
+                let b = codice.toString(2).padStart(8, "0");
+                let e = codice.toString(16).toUpperCase();
+                binario += b + " ";
+                esadecimale += e + " ";
+            }
+            document.getElementById("binario").innerHTML = binario;
+            document.getElementById("esadecimale").innerHTML = esadecimale;
+        }
+    </script>
+</body>
+</html>
